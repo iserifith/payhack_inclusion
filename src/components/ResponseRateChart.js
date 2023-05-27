@@ -1,46 +1,68 @@
-"use client";
-import { getResponse_rate} from "@/db";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie, Bar } from "react-chartjs-2";
+
+import React, { useState, useEffect } from 'react';
+import 'chart.js/auto';
+import { Pie } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ResponseRateChart = () => {
-  const smeResponded = getResponse_rate();
+  const [chartData, setChartData] = useState({
+    datasets: [],
+  });
+
+  const [chartOptions, setChartOptions] = useState({});
+
+  useEffect(() => {
+    setChartData({
+        labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
+        datasets: [
+            {
+                label: 'Sales $',
+                data: [18127, 22201, 19490, 17938, 24182, 17842, 22475],
+                borderColor: 'rgb(53, 162, 235)',
+                backgroundColor: 'rgb(53, 162, 235, 0.4',
+              }, 
+        ]
+    })
+    setChartOptions({
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Daily Revenue'
+            }
+        },
+        maintainAspectRatio: false,
+        responsive: true
+    })
+  }, [])
 
   return (
-    <div className='w-full md:col-span-1 relative lg:h-[30vh] h-[50vh] m-auto p-1 border rounded-lg bg-white'
-      style={{
-        width: "55%",
-      }}
-    >
-      <Pie
-        data={{
-          labels: [
-            "Responded Percentage",
-            "Not Responded "      
-          ],
-          datasets: [
-            {
-              label: "SME Responses",
-              data: [
-                smeResponded.respondedSmePerc,
-                smeResponded.noResponSmePerc 
-              ],
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-              ],
-              borderColor: [
-                "rgba(255, 99, 132, 1)",
-                "rgba(54, 162, 235, 1)",
-              ],
-              borderWidth: 1,
-            },
-          ],
-        }}
-      />
-    </div>
+    <>
+      <div className='w-full md:col-span-1 relative lg:h-[50vh] h-[50vh] m-auto p-4 border rounded-lg bg-white'>
+        <Pie data={chartData} options={chartOptions} />
+      </div>
+    </>
   );
 };
 
