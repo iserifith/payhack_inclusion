@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="container">
-        <div className="w-screen h-[50px] bg-red-300">
+        {/* <div className="w-screen h-[50px] bg-red-300">
           <h1>header</h1>
         </div>
         <div className="flex flex-row">
@@ -20,7 +20,8 @@ export default function RootLayout({ children }) {
             <h1>Left</h1>
           </div>
           <div className="w-10/12 bg-slate-500 h-screen">{children}</div>
-        </div>
+        </div> */}
+        {children}
       </body>
     </html>
   );
