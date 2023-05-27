@@ -9,11 +9,9 @@ const SMEInfoPieChart = () => {
   const smesInfo = getSmeInfo();
 
   return (
-    <div
+    <div className='w-full md:col-span-1 relative lg:h-[30vh] h-[50vh] m-auto p-1 border rounded-lg bg-white'
       style={{
-        float: "left",
-        width: "50%",
-        height: "auto"
+        width: "55%",
       }}
     >
       <Pie
