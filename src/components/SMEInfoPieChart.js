@@ -1,7 +1,7 @@
 "use client";
 import { getSmeInfo } from "@/db";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "react-chartjs-2";
+import { Pie, Bar } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -11,7 +11,9 @@ const SMEInfoPieChart = () => {
   return (
     <div
       style={{
+        float: "left",
         width: "50%",
+        height: "auto"
       }}
     >
       <Pie

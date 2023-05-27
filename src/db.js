@@ -5,13 +5,13 @@ const sme_info = {
 };
 
 const response_rate = {
-  respondedSme: "2000",
-  respondedSmePerc: "30%",
+  respondedSmePerc: "20",
+  noResponSmePerc: "80"
 };
 
 const qr_usage = {
-  respondedUseQR: "1000",
-  respondedUseQRPerc: "50%",
+  respondedUseQRPerc: "50",
+  noRespondedUseQrPerc: "50"
 };
 
 const qr_dist = {

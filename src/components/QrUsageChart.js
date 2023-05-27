@@ -1,12 +1,12 @@
 "use client";
-import { getResponse_rate} from "@/db";
+import { getQRUsage} from "@/db";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie, Bar } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const SMEInfoPieChart = () => {
-  const smeResponded = getResponse_rate();
+const QrUsageChart = () => {
+  const qrUsage = getQRUsage();
 
   return (
     <div
@@ -25,8 +25,8 @@ const SMEInfoPieChart = () => {
             {
               label: "SME Responses",
               data: [
-                smeResponded.respondedSmePerc,
-                smeResponded.noResponSmePerc 
+                qrUsage.respondedUseQRPerc,
+                qrUsage.noRespondedUseQrPerc 
               ],
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
@@ -47,4 +47,4 @@ const SMEInfoPieChart = () => {
   );
 };
 
-export default SMEInfoPieChart;
+export default QrUsageChart;
