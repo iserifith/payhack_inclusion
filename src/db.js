@@ -27,7 +27,7 @@ const prospect = {
 
 const challenges = {
   "do not have app": "3000",
-  tedious: "3230",
+  "tedious" : "3230",
 };
 
 export const getSmeInfo = () => {
