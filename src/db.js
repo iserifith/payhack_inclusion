@@ -6,12 +6,12 @@ const sme_info = {
 
 const response_rate = {
   respondedSmePerc: "20",
-  noResponSmePerc: "80"
+  noResponSmePerc: "80",
 };
 
 const qr_usage = {
   respondedUseQRPerc: "50",
-  noRespondedUseQrPerc: "50"
+  noRespondedUseQrPerc: "50",
 };
 
 const qr_dist = {
@@ -27,7 +27,7 @@ const prospect = {
 
 const challenges = {
   "do not have app": "3000",
-  "tedious" : "3230",
+  tedious: "3230",
 };
 
 export const getSmeInfo = () => {
@@ -52,4 +52,16 @@ export const getProspect = () => {
 
 export const getChallenges = () => {
   return challenges;
+};
+
+export const getData = async () => {
+  try {
+    const url =
+      "https://raw.githubusercontent.com/iserifith/payhack_inclusion/zul_branch/getQrUsage.json?token=GHSAT0AAAAAACCA5H5QSIU4PIJET7QRJ452ZDSFCEA";
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    alert(error);
+  }
 };
