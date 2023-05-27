@@ -3,8 +3,10 @@
 import ChallengesBarChart from "@/components/challengesBarChart";
 import Header from "@/components/shared/Header";
 import TopCards from "@/components/shared/TopCards";
-import ReviewerList from "@/components/shared/ReviewerList";
+import SMEInfoPieChart from "@/components/SMEInfoPieChart";
 import ResponseRateChart from "@/components/ResponseRateChart";
+import QrUsageChart from "@/components/QrUsageChart";
+import ReviewerList from "@/components/shared/ReviewerList";
 
 
 const Page = () => {
@@ -16,11 +18,10 @@ const Page = () => {
         <TopCards />
         <div className='p-4 grid md:grid-cols-3 grid-cols-1 gap-4'>
         <ResponseRateChart/>
-          
-          <ReviewerList/>
-          <ChallengesBarChart />
-          
-          
+        <ResponseRateChart/>
+        <ReviewerList/>
+        <ChallengesBarChart />
+        
  
          
         </div>

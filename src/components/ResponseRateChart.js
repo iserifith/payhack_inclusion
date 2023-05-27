@@ -10,6 +10,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  ArcElement
 } from 'chart.js';
 
 ChartJS.register(
@@ -20,6 +21,8 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ResponseRateChart = () => {
   const [chartData, setChartData] = useState({

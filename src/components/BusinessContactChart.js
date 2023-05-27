@@ -1,12 +1,12 @@
 "use client";
-import { getSmeInfo } from "@/db";
+import { getResponse_rate} from "@/db";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie, Bar } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const SMEInfoPieChart = () => {
-  const smesInfo = getSmeInfo();
+const ResponseRateChart = () => {
+  const smeResponded = getResponse_rate();
 
   return (
     <div className='w-full md:col-span-1 relative lg:h-[30vh] h-[50vh] m-auto p-1 border rounded-lg bg-white'
@@ -17,28 +17,23 @@ const SMEInfoPieChart = () => {
       <Pie
         data={{
           labels: [
-            "Total SME Available",
-            "Total SME with Contact",
-            "Total Inquiries Sent",
+            "Responded Percentage",
+            "Not Responded "      
           ],
           datasets: [
             {
-              label: "SME Info",
+              label: "SME Responses",
               data: [
-                smesInfo.totalSmeAvailable,
-                smesInfo.totalSmeWithContact,
-                smesInfo.totalInquiriesSent,
+                smeResponded.respondedSmePerc,
+                smeResponded.noResponSmePerc 
               ],
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
               ],
               borderColor: [
                 "rgba(255, 99, 132, 1)",
-
                 "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
               ],
               borderWidth: 1,
             },
@@ -49,4 +44,4 @@ const SMEInfoPieChart = () => {
   );
 };
 
-export default SMEInfoPieChart;
+export default ResponseRateChart;
