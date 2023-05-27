@@ -10,7 +10,11 @@ const Page = () => {
   // totalInquiriesSent: "100",
   const smesInfo = getSmeInfo();
   return (
-    <div>
+    <div
+      style={{
+        width: "50%",
+      }}
+    >
       <Pie
         data={{
           labels: [
