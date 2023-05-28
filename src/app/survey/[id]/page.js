@@ -1,6 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import useWindowSize from "@/useWindowSize";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 
 const _questions = [
   {
@@ -11,7 +14,7 @@ const _questions = [
   },
   {
     text: "Which of the following QR payment methods do you use?",
-    options: ["PayNow", "GrabPay", "Singtel Dash", "FavePay"],
+    options: ["DuitNow", "GrabPay", "TouchN'Go", "MAE"],
     multiple: true,
     answer: [],
   },
@@ -35,9 +38,24 @@ const _questions = [
   },
 ];
 
-const Survey = () => {
+const Survey = ({ params }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [questions, setQuestions] = useState(_questions);
+  const [ty, setTy] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    let array = [];
+    const q = questions[3];
+
+    q.options.forEach((option) => {
+      array.push(option);
+    });
+
+    console.log(array);
+  }, []);
+
+  const { width, height } = useWindowSize();
 
   const handlePrevQuestion = () => {
     setCurrentQuestion(currentQuestion - 1);
@@ -77,8 +95,7 @@ const Survey = () => {
   };
 
   const handleSubmit = () => {
-    // Handle submission logic here
-    console.log(questions);
+    setTy(true);
   };
 
   const renderQuestion = (question) => {
@@ -131,40 +148,43 @@ const Survey = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen flex-col gap-20 container px-10">
-      <div className="w-min-[500px]">
-        {renderQuestion(questions[currentQuestion])}
-      </div>
+      {ty ? (
+        <>
+          <Confetti width={width} height={height} />
+          <div>
+            <h1 className="text-2xl font-bold">Thank you for your time!</h1>
+            <h2 className="text-1xl font-bold">
+              We will get back to you soon.
+            </h2>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="w-min-[500px]">
+            {renderQuestion(questions[currentQuestion])}
+          </div>
 
-      <div className="flex justify-between mt-4 gap-20">
-        {/* {currentQuestion > 0 ? (
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={handlePrevQuestion}
-          >
-            Prev
-          </button>
-        ) : (
-          <div></div>
-        )} */}
+          <div className="flex justify-between mt-4 gap-20">
+            {currentQuestion < questions.length - 1 && (
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={handleNextQuestion}
+              >
+                Next
+              </button>
+            )}
 
-        {currentQuestion < questions.length - 1 && (
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={handleNextQuestion}
-          >
-            Next
-          </button>
-        )}
-
-        {currentQuestion === questions.length - 1 && (
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
-        )}
-      </div>
+            {currentQuestion === questions.length - 1 && (
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 };

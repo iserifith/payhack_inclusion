@@ -1,7 +1,7 @@
 const sme_info = {
-  totalSmeAvailable: "2000",
+  totalSmeAvailable: "100",
   totalSmeWithContact: "800",
-  totalInquiriesSent: "100",
+  totalInquiriesSent: "350",
 };
 
 const response_rate = {
@@ -10,14 +10,15 @@ const response_rate = {
 };
 
 const qr_usage = {
-  respondedUseQRPerc: "50",
-  noRespondedUseQrPerc: "50",
+  respondedUseQRPerc: "21",
+  noRespondedUseQrPerc: "79",
 };
 
 const qr_dist = {
-  DuitNow: "3000",
+  DuitNow: "1211",
   TNG: "1400",
-  MAE: "200",
+  MAE: "899",
+  GrabPay: "500",
 };
 
 const prospect = {
@@ -54,7 +55,7 @@ export const getChallenges = () => {
   return challenges;
 };
 
-export const getData = async () => {
+export const getDataQrUsage = async () => {
   try {
     const url =
       "https://raw.githubusercontent.com/iserifith/payhack_inclusion/zul_branch/getQrUsage.json?token=GHSAT0AAAAAACCA5H5QSIU4PIJET7QRJ452ZDSFCEA";
@@ -65,3 +66,29 @@ export const getData = async () => {
     alert(error);
   }
 };
+
+export const getResponseRate = async () => {
+  try {
+    const url =
+      "https://raw.githubusercontent.com/iserifith/payhack_inclusion/zul_branch/getResponseRate.json?token=GHSAT0AAAAAACCA5H5QSIU4PIJET7QRJ452ZDSFCEA";
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    alert(error);
+  }
+};
+
+export const getSMEInfo = async () => {
+  try {
+    const url =
+      "https://raw.githubusercontent.com/iserifith/payhack_inclusion/zul_branch/getSMEInfo.json?token=GHSAT0AAAAAACCA5H5QSIU4PIJET7QRJ452ZDSFCEA";
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    alert(error);
+  }
+};
+
+

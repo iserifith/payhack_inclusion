@@ -7,18 +7,12 @@ import SMEInfoPieChart from "@/components/SMEInfoPieChart";
 import ResponseRateChart from "@/components/ResponseRateChart";
 import QrUsageChart from "@/components/QrUsageChart";
 import ReviewerList from "@/components/shared/ReviewerList";
-import { getData } from "@/db";
+import { getBusinesses, getResponseRate } from "@/db";
 import { useEffect, useState } from "react";
+import QRDistribution from "@/components/QRDistribution";
 
 const Page = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await getData();
-      setData(result);
-    };
-    fetchData();
-  }, []);
+
 
   return (
     <>
@@ -26,13 +20,12 @@ const Page = () => {
         <Header />
         <TopCards />
         <div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4">
-          <ResponseRateChart />
-          <ResponseRateChart />
-          <ReviewerList />
+          {/* <ResponseRateChart /> */}
+          <SMEInfoPieChart />
+          <QrUsageChart />
+          {/* <ReviewerList /> */}
+          <QRDistribution />
           <ChallengesBarChart />
-          <pre>
-            <code>{JSON.stringify(data, null, 2)}</code>
-          </pre>
         </div>
       </main>
     </>
