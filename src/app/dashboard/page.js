@@ -12,16 +12,14 @@ import { useEffect, useState } from "react";
 import QRDistribution from "@/components/QRDistribution";
 
 const Page = () => {
-
-
   return (
     <>
       <main className="bg-gray-100 min-h-screen">
         <Header />
         <TopCards />
-        <div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4">
+        <div className="p-4 grid md:grid-cols-2 grid-cols-1 gap-4">
           {/* <ResponseRateChart /> */}
-          <SMEInfoPieChart />
+          {/* <SMEInfoPieChart /> */}
           <QrUsageChart />
           {/* <ReviewerList /> */}
           <QRDistribution />
