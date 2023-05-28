@@ -16,7 +16,7 @@ const surveys = () => {
           <div className='my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer'>
             <span>Name</span>
             <span className='sm:text-left text-right'>Email</span>
-            <span className='hidden md:grid'>Last Order</span>
+            <span className='hidden md:grid'>Recently added</span>
             <span className='hidden sm:grid'>Method</span>
           </div>
           <ul>
