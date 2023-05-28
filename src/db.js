@@ -55,6 +55,7 @@ export const getChallenges = () => {
   return challenges;
 };
 
+
 export const getDataQrUsage = async () => {
   try {
     const url =
@@ -91,4 +92,14 @@ export const getSMEInfo = async () => {
   }
 };
 
-
+export const getFeedbackRate = async () => {
+  try {
+    const url =
+    "https://raw.githubusercontent.com/iserifith/payhack_inclusion/zul_branch/getFeedback.json?token=GHSAT0AAAAAACCA5H5QSIU4PIJET7QRJ452ZDSFCEA";
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    alert(error);
+  }
+};
