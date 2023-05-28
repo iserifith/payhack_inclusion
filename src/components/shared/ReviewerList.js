@@ -1,6 +1,6 @@
-import React from "react";
-import { data } from "../../data/data.js";
-import { FaUserAlt } from "react-icons/fa";
+import React from 'react';
+import { data } from '../../data/data.js';
+import { FaUserAlt } from 'react-icons/fa';
 
 const ReviewerList = () => {
   return (
