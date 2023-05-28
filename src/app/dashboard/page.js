@@ -7,7 +7,7 @@ import SMEInfoPieChart from "@/components/SMEInfoPieChart";
 import ResponseRateChart from "@/components/ResponseRateChart";
 import QrUsageChart from "@/components/QrUsageChart";
 import ReviewerList from "@/components/shared/ReviewerList";
-import { getData } from "@/db";
+import { getBusinesses, getData } from "@/db";
 import { useEffect, useState } from "react";
 
 const Page = () => {
@@ -17,6 +17,7 @@ const Page = () => {
       const result = await getData();
       setData(result);
     };
+
     fetchData();
   }, []);
 
