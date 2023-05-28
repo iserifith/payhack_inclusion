@@ -53,19 +53,19 @@ const TopCards = () => {
         <div className='lg:col-span-1 col-span-1 bg-white flex justify-between w-full border p-4 rounded-lg'>
             <div className='flex flex-col w-full pb-4'>
                 <p className='text-2xl font-bold'>{feedbackdata.respondWithYes}</p>
-                <p className='text-gray-600'>Feedback Received</p>
+                <p className='text-gray-600'>Yes Feedback Received</p>
             </div>
             <p className='bg-green-200 flex justify-center items-center p-2 rounded-lg'>
-                <span className='text-green-700 text-lg'>30%</span>
+                <span className='text-green-700 text-lg'>{feedbackdata.respondPercYes}</span>
             </p>
         </div>
         <div className='lg:col-span-1 col-span-1 bg-white flex justify-between w-full border p-4 rounded-lg'>
             <div className='flex flex-col w-full pb-4'>
-                <p className='text-2xl font-bold'>1000</p>
-                <p className='text-gray-600'>responded use QR</p>
+                <p className='text-2xl font-bold'>{feedbackdata.respondWithNo}</p>
+                <p className='text-gray-600'>No Feedback Received</p>
             </div>
             <p className='bg-green-200 flex justify-center items-center p-2 rounded-lg'>
-                <span className='text-green-700 text-lg'>50%</span>
+                <span className='text-green-700 text-lg'>{feedbackdata.respondPercNo}</span>
             </p>
         </div>
         
