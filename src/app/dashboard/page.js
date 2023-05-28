@@ -9,6 +9,7 @@ import QrUsageChart from "@/components/QrUsageChart";
 import ReviewerList from "@/components/shared/ReviewerList";
 import { getBusinesses, getData } from "@/db";
 import { useEffect, useState } from "react";
+import QRDistribution from "@/components/QRDistribution";
 
 const Page = () => {
   const [data, setData] = useState([]);
@@ -27,13 +28,12 @@ const Page = () => {
         <Header />
         <TopCards />
         <div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4">
-          <ResponseRateChart />
-          <ResponseRateChart />
-          <ReviewerList />
+          {/* <ResponseRateChart /> */}
+          <SMEInfoPieChart />
+          <QrUsageChart />
+          {/* <ReviewerList /> */}
+          <QRDistribution />
           <ChallengesBarChart />
-          <pre>
-            <code>{JSON.stringify(data, null, 2)}</code>
-          </pre>
         </div>
       </main>
     </>
