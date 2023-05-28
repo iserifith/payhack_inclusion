@@ -25,6 +25,8 @@ ChartJS.register(
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ResponseRateChart = ({data}) => {
+
+  
   const [chartData, setChartData] = useState({
     datasets: [],
   });
