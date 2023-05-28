@@ -21,8 +21,8 @@ const Page = () => {
         <div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4">
           <ResponseRateChart />
           <ResponseRateChart  />
-          <ReviewerList data = {data}/> 
-          <ChallengesBarChart data = {data} />
+          <ReviewerList /> 
+          <ChallengesBarChart  />
         
         </div>
       </main>
