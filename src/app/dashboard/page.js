@@ -7,7 +7,7 @@ import SMEInfoPieChart from "@/components/SMEInfoPieChart";
 import ResponseRateChart from "@/components/ResponseRateChart";
 import QrUsageChart from "@/components/QrUsageChart";
 import ReviewerList from "@/components/shared/ReviewerList";
-import { getResponseRate } from "@/db";
+import { getBusinesses, getResponseRate } from "@/db";
 import { useEffect, useState } from "react";
 
 const Page = () => {
